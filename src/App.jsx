@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//import { useState } from 'react'
+//import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+// UserProfile component: A reusable component to display user information
+function UserProfile(props) {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>User Profile:</h1>{/* Heading for the user profile section */}
+      <h2>Username: {props.name}</h2>{/* Displaying the user's name from props */}
+      <h2>Age: {props.age}</h2>{/* Displaying the user's age from props */}
+    </div>
+  );
 }
 
-export default App
+// App component: Renders multiple UserProfile components with different data
+function App() {
+  return (
+    <div>
+      {/* Passing different names and ages to the UserProfile component */}
+      <UserProfile name="John" age={15}/>
+      <UserProfile name="Kansas" age={25} />
+      <UserProfile name="Rupa" age={35}/>
+    </div>
+  );
+}
+
+export default App; // Exporting the App component for use in the application
